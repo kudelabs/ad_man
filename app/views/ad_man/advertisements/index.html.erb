@@ -1,7 +1,7 @@
 <h1>Current Advertisements</h1>
 <div>
 <div>
-<% if !@advertisements.nil? %>
+<% if !@advertisements.blank? %>
 	<table>
 		<tr>
 			<th></th>
@@ -19,14 +19,17 @@
   	</tr>
 	<% end %>
 </table>
+<% else %>
+	<h3>You don't have any advertisements yet, why don't you create one:</h3>
 <% end %>
-
 <!-- Paginate Advertisements -- uncomment
 	<#%= will_paginate @advertisements %>
 -->
 	<li style="display:inline;">
 		<ul><%= button_to 'New', new_advertisement_path, :method => :get %></ul>
+		<% if !@advertisements.blank? %>
 		<ul><%= submit_tag 'Delete', :onclick => "if (!confirm('Are you sure?')) {return false}" %></ul>
+		<% end %>
 	</li>
 
 </div >
