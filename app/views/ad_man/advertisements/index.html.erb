@@ -1,25 +1,49 @@
-<h1>Listing advertisements</h1>
+<h1>Current Advertisements</h1>
+<div>
+<div>
+<% if !@advertisements.nil? %>
+	<table>
+		<tr>
+			<th></th>
+			<th>title</th>
+			<th>image</th>
+			<th>destination url</th>
+		</tr>
+	<% @advertisements.each do |advertisement| %>
+	 	<tr>
+			<td class="check_box"><%= check_box_tag "advertisement_ids[]", advertisement.id, false, :id => "#{advertisement.id}" %></td>
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Destination url</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @advertisements.each do |advertisement| %>
-  <tr>
-    <td><%= advertisement.title %></td>
-    <td><%= advertisement.destination_url %></td>
-    <td><%= link_to 'Show', advertisement %></td>
-    <td><%= link_to 'Edit', edit_advertisement_path(advertisement) %></td>
-    <td><%= link_to 'Destroy', advertisement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
+   		<td><%= link_to advertisement.title, advertisement %></td>
+			<td><%= link_to image_tag(advertisement.ad_banner.url(:small)), advertisement %> </td>
+			<td><%= advertisement.destination_url%></td>
+  	</tr>
+	<% end %>
 </table>
+<% end %>
 
-<br />
+<!-- Paginate Advertisements -- uncomment
+	<#%= will_paginate @advertisements %>
+-->
+	<li style="display:inline;">
+		<ul><%= button_to 'New', new_advertisement_path, :method => :get %></ul>
+		<ul><%= submit_tag 'Delete', :onclick => "if (!confirm('Are you sure?')) {return false}" %></ul>
+	</li>
 
-<%= link_to 'New Advertisement', new_advertisement_path %>
+</div >
+
+<div>
+
+<h2>Current Keywords</h2>
+<% if !@keywords.nil? %>
+	<ul><h3>
+		<% @keywords.each do |keyword| %>
+		<li><%= link_to keyword.name, keyword %>(<%= keyword.number_of_ads %>)</li>
+		<% end %>
+	</h3></ul>
+<% end %>
+</div>
+<div style="clear:;"></div>
+
+</div>
+
+

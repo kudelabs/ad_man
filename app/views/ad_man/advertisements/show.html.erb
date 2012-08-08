@@ -1,15 +1,37 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Title:</b>
-  <%= @advertisement.title %>
-</p>
 
+<table width="600">
+<tr>
+	<td width="510"><h2><%= @advertisement.title %></h2></td>
+	<td><%= button_to 'Edit', edit_advertisement_path(@advertisement), :method => :get %></td>
+	<td><%= button_to "Destroy", @advertisement, :method => :delete,
+				:confirm => "There is no undo, please confirm."%><!-- Alert Button -->
+	</td>
+	<td><%= button_to 'Back', advertisements_path, :method => :get %></td>
+</tr>
+</table>
+<div style="margin-left:10px;">
+<p>
+  <b>Ad Banner: &nbsp;&nbsp;728x90</b><br/>
+	<%= image_tag @advertisement.ad_banner.url(:original) %><br/>
+	<b>468x60</b><br/>
+	<%= image_tag @advertisement.ad_banner.url(:small) %><br/>
+</p>
+<p>
+<!-- 	<b>Keyword:</b>
+	<#%= link_to @advertisement.keyword.name, @advertisement.keyword %>	
+</p> -->
+<p>
+	<b>Page Views:</b>
+	<%= @advertisement.display_count %>
+</p> 
+<p>
+	<b>File Size:</b>
+	<%= number_to_human_size(@advertisement.ad_banner.size) %>
+</p>
 <p>
   <b>Destination url:</b>
-  <%= @advertisement.destination_url %>
+  <%= link_to @advertisement.destination_url, @advertisement.destination_url %>
 </p>
-
-
-<%= link_to 'Edit', edit_advertisement_path(@advertisement) %> |
-<%= link_to 'Back', advertisements_path %>
+</div>

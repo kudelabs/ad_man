@@ -11,15 +11,45 @@
     </div>
   <% end %>
 
+	<div class="field">
+		<%= f.label :ad_banner, "Acceptable sizes: 468x60 or 728x90" %><br />
+		<%= f.file_field :ad_banner %>	
+		<div class="preview"></div>
+	</div><br />
   <div class="field">
     <%= f.label :title %><br />
     <%= f.text_field :title %>
-  </div>
+  </div><br />
   <div class="field">
     <%= f.label :destination_url %><br />
-    <%= f.text_field :destination_url %>
-  </div>
+    <%= f.url_field :destination_url %>
+  </div><br />
+  <div class="field">
+	<%= f.label :keyword %>
+	<%= select_tag :keyword_id,  options_for_select(AdMan::Keyword.available.collect { |keyword| [keyword.name, keyword.id]})%>
+	<% if AdMan::Keyword.unavailable.count > 0%>
+	<p><b><%= AdMan::Keyword.unavailable.collect { |keyword| keyword.name } %></b> keyword has allready been used 5 times.</p>
+	<% end %>
+  </div><br />
+  <div class="field">
+		<%= f.label :priority %>
+		<%= select_tag :priority, options_for_select(1..10) %>
+	</div><br />
+	<div class="field">
+		<%= f.label :start_date %><br />
+		<%= date_select("advertisement", "start_date") %>
+	</div><br />
+	<div class="field">
+		<%=f.label :expire_date %><br />
+		<%= date_select("advertisement", "expire_date") %>
+	</div><br />
+
+
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+
+<script>
+$('input[type=file]').change(handleFileSelect);
+</script>
