@@ -11,9 +11,7 @@ module AdMan
   		:size => { :in => 0..50.kilobytes }
   	validates_presence_of :destination_url, :title, :keyword_id, :priority
   	validate :image_dimensions, :on => :create
-  	after_create :increase_count  
-  	after_destroy :decrease_count	
-  
+
 		after_initialize :init_display_count
 
   	def Advertisement.render_random_ad(keyword_id)
@@ -45,18 +43,6 @@ module AdMan
 										"must be image size: #{max_width}X#{max_height}.")
       end
     end
-   
-		#increase the number of advertisements for the keyword by one after creating an advertiseent.
-  	def increase_count
-  		number = self.keyword.number_of_ads + 1
-  		self.keyword.update_attributes(:number_of_ads => number)
-  	end
-
-		#decrease the number of advertisements for the keyword by one after destroying an advertisement.
-  	def decrease_count
-  		number = self.keyword.number_of_ads - 1
-  		self.keyword.update_attributes(:number_of_ads => number)
-  	end
 	
 		#set a default value for column display_count
 		def init_display_count
