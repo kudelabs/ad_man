@@ -12,8 +12,6 @@ module AdMan
   	validates_presence_of :destination_url, :title, :keyword_id, :priority
   	validate :image_dimensions, :on => :create
 
-		after_initialize :init_display_count
-
   	def Advertisement.render_random_ad(keyword_id)
 #  		ads = Advertisement.find_all_by_keyword_id(keyword_id)
 			ads = Advertisement.where("keyword_id = ? and expire_date >= ? ", keyword_id, Date.today)
@@ -44,11 +42,6 @@ module AdMan
       end
     end
 	
-		#set a default value for column display_count
-		def init_display_count
-			self.display_count ||= 0
-		end
-
   end
 end
 
