@@ -40,8 +40,10 @@
 		<%= date_select("advertisement", "start_date") %>
 	</div><br />
 	<div class="field">
-		<%=f.label :expire_date %><br />
-		<%= date_select("advertisement", "expire_date") %>
+		<%=f.label :end_date %><br />
+		<!--
+		<#% TODO : end date should be 30 days plus %> -->
+		<%= date_select("advertisement", "end_date") %> 
 	</div><br />
 
 

@@ -1,6 +1,6 @@
 module AdMan
   class Advertisement < ActiveRecord::Base
-    attr_accessible :destination_url, :title, :ad_banner, :display_count, :priority, :start_date, :expire_date
+    attr_accessible :destination_url, :title, :ad_banner, :display_count, :priority, :start_date, :end_date
     validates_with AttachmentPresenceValidator, :attributes => :ad_banner
     belongs_to :keyword
     has_attached_file :ad_banner, :styles => { :original => (AdMan.original_size)?(AdMan.original_size):'728X90', 
@@ -14,7 +14,7 @@ module AdMan
 
   	def Advertisement.render_random_ad(keyword_id)
 #  		ads = Advertisement.find_all_by_keyword_id(keyword_id)
-			ads = Advertisement.where("keyword_id = ? and expire_date >= ? ", keyword_id, Date.today)
+			ads = Advertisement.where("keyword_id = ? and end_date >= ? ", keyword_id, Date.today)
 			if !ads.blank?
 				total_times = 1.0
 				total_priority = 0.0

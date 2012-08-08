@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120808100040) do
+ActiveRecord::Schema.define(:version => 20120808101547) do
 
   create_table "ad_man_advertisements", :force => true do |t|
     t.string   "title"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(:version => 20120808100040) do
     t.integer  "priority"
     t.date     "start_date"
     t.date     "end_date"
+    t.integer  "keyword_id"
   end
 
   create_table "ad_man_keywords", :force => true do |t|
