@@ -2,9 +2,11 @@ class AdMan::AdvertisementsController < ApplicationController
   # GET /advertisements
   # GET /advertisements.json
   def index
-    #@advertisements = Advertisement.all
-		@advertisements = AdMan::Advertisement.paginate :page => params[:page], :order => 'created_at desc', 
-			:per_page => 5
+    @advertisements = AdMan::Advertisement.all
+		
+		# depends on the "will_paginate" gem
+		#@advertisements = AdMan::Advertisement.paginate :page => params[:page], :order => 'created_at desc', 
+		#	:per_page => 5
     @keywords = AdMan::Keyword.all
     
     respond_to do |format|
