@@ -1,0 +1,16 @@
+<h1>Current Keywords</h1>
+<div id="keywords">
+<table>
+	<% @keywords.each do |keyword| %>
+  <tr>
+    <td><%= link_to keyword.name, keyword %></td>
+  </tr>	
+<% end %>
+</table>
+<div id="keywords">
+	<%= button_to 'New Keyword', new_keyword_path, :method => :get %>
+</div>
+</div >
+
+
+

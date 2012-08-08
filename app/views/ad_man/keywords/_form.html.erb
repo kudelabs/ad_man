@@ -1,0 +1,22 @@
+<%= form_for(@keyword) do |f| %>
+  <% if @keyword.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@keyword.errors.count, "error") %> prohibited this advertisement from being saved:</h2>
+
+      <ul>
+		  <% @keyword.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div><br />
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

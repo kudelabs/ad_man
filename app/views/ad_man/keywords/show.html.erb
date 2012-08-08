@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+
+<table width="600">
+<tr>
+	<td width="510"><h2><%= @keyword.name %></h2></td>
+	<td><%= button_to 'Edit', edit_keyword_path(@keyword), :method => :get %></td>
+	<td><%= button_to "Destroy", @keyword, :method => :delete,
+				:confirm => "There is no undo, please confirm."%><!-- Alert Button -->
+	</td>
+	<td><%= button_to 'Back', keywords_path, :method => :get %></td>
+</tr>
+</table>
+
+<h1>Advertisements for <%= @keyword %></h1>
+<div id="ads">
+	<table>
+		<% @advertisements.each do |advertisement| %>
+			<tr>
+				<td><%= link_to advertisement.title, advertisement %></td>
+			</tr>
+			<tr>
+				<td><%= link_to image_tag(advertisement.ad_banner.url(:small)), advertisement %></td>
+			</tr>
+		<% end %>
+	</table>
+</div>
+
+<div id="keywords">
+<%= link_to "All Advertisements", advertisements_path %><br/><br/>
+<%= button_to "New Advertisement", new_advertisement_path, :method => :get %>
+<h2>Current Keywords</h2>
+<ul><h3>
+		<% @keywords.each do |keyword| %>
+			<li><%= link_to keyword.name, keyword %>(<%= keyword.number_of_ads %>)</li>
+		<% end %>
+	</h3>
+</div>
+<div style="clear:;"></div>
