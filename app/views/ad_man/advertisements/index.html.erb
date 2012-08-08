@@ -4,15 +4,12 @@
 <% if !@advertisements.blank? %>
 	<table>
 		<tr>
-			<th></th>
 			<th>title</th>
 			<th>image</th>
 			<th>destination url</th>
 		</tr>
 	<% @advertisements.each do |advertisement| %>
 	 	<tr>
-			<td class="check_box"><%= check_box_tag "advertisement_ids[]", advertisement.id, false, :id => "#{advertisement.id}" %></td>
-
    		<td><%= link_to advertisement.title, advertisement %></td>
 			<td><%= link_to image_tag(advertisement.ad_banner.url(:small)), advertisement %> </td>
 			<td><%= advertisement.destination_url%></td>
@@ -27,9 +24,6 @@
 -->
 	<li style="display:inline;">
 		<ul><%= button_to 'New', new_advertisement_path, :method => :get %></ul>
-		<% if !@advertisements.blank? %>
-		<ul><%= submit_tag 'Delete', :onclick => "if (!confirm('Are you sure?')) {return false}" %></ul>
-		<% end %>
 	</li>
 
 </div >
