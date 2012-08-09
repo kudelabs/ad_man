@@ -1,11 +1,14 @@
 module AdMan
   module ApplicationHelper
       def link_to_ad(keyword = nil, size = "leaderboard")
-        keyword_id = Keyword.first.id  # TODO Need to add a keyword_preference here...
-    		#keyword ||= get_keyword_from_url
-    		#keyword_id = Keyword.find_by_name(keyword).id
-    		ad = Advertisement.render_random_ad(keyword_id)
-        grab size? leaderboard or banner
+    		keyword ||= get_keyword_from_url
+				if keyword && !keyword.blank? 
+    		  keyword_id = Keyword.find_by_name(keyword).id
+    			ad = Advertisement.render_random_ad(keyword_id)
+       	  #grab size? leaderboard or banner
+				else 
+					ad = Advertisement.render_random_ad
+				end
     		if !ad.nil?
     			ad.display_count += 1
     			ad.save
@@ -18,7 +21,7 @@ module AdMan
   		 req_url = request.env["REQUEST_PATH"].split("/")
     	 keyword_names = Keyword.all.map{ |keyword| keyword.name }
     	 keyword = req_url & keyword_names
-		   return (keyword)?(keyword):(Keyword.all[rand(Keyword.all.size)])
-     end
+		   #return (keyword)?(keyword):(Keyword.all[rand(Keyword.all.size)])
+	     end
   end
 end

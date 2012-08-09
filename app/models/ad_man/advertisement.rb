@@ -31,6 +31,11 @@ module AdMan
 			end
 	  end
     
+		def Advertisement.render_random_ad
+			ads = Advertisement.all
+			ad = ads[rand(ads.size)]
+		end
+
   	private
     def image_dimensions
       temp_file = ad_banner.queued_for_write[:leaderboard] #get the file
