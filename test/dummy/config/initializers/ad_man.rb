@@ -1,5 +1,6 @@
 AdMan.leaderboard_size = "728x90"
 AdMan.banner_size = "468x60"
+AdMan.max_image_size = 50 # 50Kb maximum image size
 
 # TODO: Implement these other advertisement sizes
 # AdMan.mobile_leaderboard_size = "320x50"
