@@ -39,7 +39,7 @@ class AdMan::KeywordsController < ApplicationController
     @keyword = AdMan::Keyword.new(params[:keyword])
     respond_to do |format|
       if @keyword.save
-        format.html { redirect_to @keyword, notice: "Keyword was successfully created."}
+        format.html { redirect_to advertisements_path, notice: "Keyword successfully created."}
         format.json { render json: @keyword, status: :created, location: @keyword }
       else
         format.html { render action: "new"}
@@ -54,7 +54,7 @@ class AdMan::KeywordsController < ApplicationController
     @keyword = AdMan::Keyword.find(params[:id])
     respond_to do |format|
       if @keyword.update_attributes(params[:keyword])
-        format.html { redirect_to @keyword, notice: "Keyword was successfully updated."}
+        format.html { redirect_to advertisements_path, notice: "Keyword successfully updated."}
         format.json { head :no_content }
       else 
         format.html { render action: "edit"}
@@ -69,7 +69,7 @@ class AdMan::KeywordsController < ApplicationController
     @keyword = AdMan::Keyword.find(params[:id])
     @keyword.destroy
     respond_to do |format|
-      format.html { redirect_to keywords_url }
+      format.html { redirect_to advertisements_path }
       format.json { head :no_content }
     end
   end

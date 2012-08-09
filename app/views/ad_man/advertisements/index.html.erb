@@ -1,46 +1,48 @@
-<h1>Current Advertisements</h1>
+<h1>Advertisements</h1>
 <div>
-<div>
-<% if !@advertisements.blank? %>
-	<table>
-		<tr>
-			<th>title</th>
-			<th>image</th>
-			<th>destination url</th>
-		</tr>
-	<% @advertisements.each do |advertisement| %>
-	 	<tr>
-   		<td><%= link_to advertisement.title, advertisement %></td>
-			<td><%= link_to image_tag(advertisement.ad_banner.url(:banner)), advertisement %> </td>
-			<td><%= advertisement.destination_url%></td>
-  	</tr>
+<% if !@keywords.blank? %>
+<div id="ads" style="display:inline-block; vertical-align:top;margin:10px;padding:10px;">
+	<% if !@advertisements.blank? %>
+		<table>
+			<% @advertisements.each do |advertisement| %>
+				<tr>
+					<td><%= link_to advertisement.title, advertisement %></td>
+					<td><%= advertisement.destination_url%></td>
+				</tr>
+				<tr>
+					<td colspan="2"><%= link_to image_tag(advertisement.ad_banner.url(:banner)), advertisement %></td>
+				</tr>
+			<% end %>
+		</table>
+		<% else %>
+		<h3>You don't have any advertisements yet, <br/>why don't you create one:</h3>
 	<% end %>
-</table>
-<% else %>
-	<h3>You don't have any advertisements yet, why don't you create one:</h3>
-<% end %>
-<!-- Paginate Advertisements -- uncomment
-	<#%= will_paginate @advertisements %>
--->
-	<li style="display:inline;">
-		<ul><%= button_to 'New', new_advertisement_path, :method => :get %></ul>
-	</li>
-
+	
+	<!-- Paginate Advertisements -- uncomment
+		<#%= will_paginate @advertisements %>
+	-->
+	
 </div >
 
-<div>
-
-<h2>Current Keywords</h2>
-<% if !@keywords.nil? %>
+<div id="keywords" style="display:inline-block;">
+<h2>Keywords</h2>
+<% if !@keywords.blank? %>
 	<ul><h3>
 		<% @keywords.each do |keyword| %>
 		<li><%= link_to keyword.name, keyword %>(<%= keyword.number_of_ads %>)</li>
 		<% end %>
 	</h3></ul>
+	<% else %>
+	<b>You don't have any keywords yet, <br/>why don't you create one:</b><br/>
 <% end %>
-</div>
+	<br />
+<%= button_to 'New Keyword', new_keyword_path, :method => :get %>
 <div style="clear:;"></div>
-
 </div>
 
+<%= button_to 'New Advertisement', new_advertisement_path, :method => :get %>
+<% else %>
+	<h3>You don't have any keywords yet, <br/>why don't you create one:<h3>
 
+<%= button_to 'New Keyword', new_keyword_path, :method => :get %>
+<% end %>

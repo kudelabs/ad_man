@@ -1,27 +1,19 @@
 <p id="notice"><%= notice %></p>
 
+<h2><%= @advertisement.title %></h2>
 
-<table width="600">
-<tr>
-	<td width="510"><h2><%= @advertisement.title %></h2></td>
-	<td><%= button_to 'Edit', edit_advertisement_path(@advertisement), :method => :get %></td>
-	<td><%= button_to "Destroy", @advertisement, :method => :delete,
-				:confirm => "There is no undo, please confirm."%><!-- Alert Button -->
-	</td>
-	<td><%= button_to 'Back', advertisements_path, :method => :get %></td>
-</tr>
-</table>
 <div style="margin-left:10px;">
 <p>
-  <b>Ad Banner: &nbsp;&nbsp;728x90</b><br/>
-	<%= image_tag @advertisement.ad_banner.url(:leaderboard) %><br/>
-	<b>468x60</b><br/>
+  <b>Leaderboard: &nbsp;&nbsp;728x90</b><br/>
+	<%= image_tag @advertisement.ad_banner.url(:leaderboard) %>
+	<br/><br/>
+	<b>Banner: &nbsp;&nbsp;468x60</b><br/>
 	<%= image_tag @advertisement.ad_banner.url(:banner) %><br/>
 </p>
 <p>
-<!-- 	<b>Keyword:</b>
-	<#%= link_to @advertisement.keyword.name, @advertisement.keyword %>	
-</p> -->
+<b>Keyword:</b>
+	<%= link_to @advertisement.keyword.name, @advertisement.keyword %>	
+</p> 
 <p>
 	<b>Page Views:</b>
 	<%= @advertisement.display_count %>
@@ -34,4 +26,10 @@
   <b>Destination url:</b>
   <%= link_to @advertisement.destination_url, @advertisement.destination_url %>
 </p>
+</div>
+<div style="display:inline-block;">
+	<%= link_to 'Edit', edit_advertisement_path(@advertisement), :method => :get %>
+	<%= link_to "Destroy", @advertisement, :method => :delete,
+				:confirm => "Deleting Advertisement, this cannot be undone.  Please confirm.", :style => "color:#b94a48"%>
+	<%= link_to 'Back', advertisements_path, :method => :get %>
 </div>
