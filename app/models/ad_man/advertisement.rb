@@ -1,6 +1,6 @@
 module AdMan
   class Advertisement < ActiveRecord::Base
-    attr_accessible :destination_url, :title, :ad_banner, :display_count, :priority, :start_date, :end_date
+    attr_accessible :destination_url, :title, :ad_banner, :display_count, :priority, :start_date, :end_date, :click_count
     validates_with AttachmentPresenceValidator, :attributes => :ad_banner
     belongs_to :keyword
     has_attached_file :ad_banner, :styles => { :leaderboard => (AdMan.leaderboard_size)?(AdMan.leaderboard_size):'728X90', 
