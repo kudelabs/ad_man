@@ -10,11 +10,12 @@ module AdMan
 				["image/jpg","image/bmp","image/png", "image/gif", "image/jpeg"] 	},
   		:size => { :in => 0..50.kilobytes }
   	validates_presence_of :destination_url, :title, :keyword_id, :priority
+		validates_uniqueness_of :title
   	validate :image_dimensions, :on => :create
 
   	def Advertisement.render_random_ad(keyword_id)
 #  		ads = Advertisement.find_all_by_keyword_id(keyword_id)
-			ads = Advertisement.where("keyword_id = ? and end_date >= ? ", keyword_id, Date.today)
+			ads = Advertisement.where("keyword_id = ? AND start_date <= ? AND_date >= ? ", keyword_id, Date.today, Date.today)
 			if !ads.blank?
 				total_times = 1.0
 				total_priority = 0.0

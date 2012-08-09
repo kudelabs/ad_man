@@ -63,6 +63,8 @@ class AdMan::AdvertisementsController < ApplicationController
   # PUT /advertisements/1.json
   def update
     @advertisement = AdMan::Advertisement.find(params[:id])
+    @advertisement.keyword_id = params[:keyword_id]
+		@advertisement.priority = params[:priority]
 
     respond_to do |format|
       if @advertisement.update_attributes(params[:advertisement])
