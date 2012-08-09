@@ -5,11 +5,12 @@ module AdMan
     		#keyword ||= get_keyword_from_url
     		#keyword_id = Keyword.find_by_name(keyword).id
     		ad = Advertisement.render_random_ad(keyword_id)
-        grab size? leaderboard or banner
+        #grab size? leaderboard or banner
     		if !ad.nil?
     			ad.display_count += 1
     			ad.save
-    			link_to image_tag(ad.ad_banner.url(size)), { :controller => 'advertisements', :action => 'click_through', :id => ad.id }, :method => :post, :target => '_blank'
+    			link_to image_tag(ad.ad_banner.url(size)), { :controller => 'advertisements', :action => 'click_through', :id => ad.id }, 
+    			:method => :post, :target => '_blank'
     		end
     	end    
 
