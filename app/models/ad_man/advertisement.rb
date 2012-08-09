@@ -3,8 +3,8 @@ module AdMan
     attr_accessible :destination_url, :title, :ad_banner, :display_count, :priority, :start_date, :end_date
     validates_with AttachmentPresenceValidator, :attributes => :ad_banner
     belongs_to :keyword
-    has_attached_file :ad_banner, :styles => { :original => (AdMan.original_size)?(AdMan.original_size):'728X90', 
-																							:small => (AdMan.small_size)?(AdMan.small_size):'468X60' }
+    has_attached_file :ad_banner, :styles => { :leaderboard => (AdMan.leaderboard_size)?(AdMan.leaderboard_size):'728X90', 
+																							:banner => (AdMan.banner_size)?(AdMan.banner_size):'468X60' }
   	validates_attachment :ad_banner, :presence => true, 
   		:content_type => { :content_type => (AdMan.content_type)?(AdMan.content_type):
 				["image/jpg","image/bmp","image/png", "image/gif", "image/jpeg"] 	},
@@ -32,7 +32,7 @@ module AdMan
     
   	private
     def image_dimensions
-      temp_file = ad_banner.queued_for_write[:original] #get the file
+      temp_file = ad_banner.queued_for_write[:leaderboard] #get the file
       dimensions = Paperclip::Geometry.from_file(temp_file)        
 			max_width = (AdMan.image_dimensions_width)?(AdMan.image_dimensions_width):728
 			max_height = (AdMan.image_dimensions_height)?(AdMan.image_dimensions_height):90

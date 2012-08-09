@@ -2,12 +2,12 @@ module AdMan
   module ApplicationHelper
     module AdEngine
       module ApplicationHelper
-        def link_to_ad(keyword = nil, size = "original")
+        def link_to_ad(keyword = nil, size = "leaderboard")
          # keyword_id = 1  # TODO Need to add a keyword_preference here...
     			keyword ||= get_keyword_from_url
     			keyword_id = Keyword.find_by_name(keyword).id
       		ad = Advertisement.render_random_ad(keyword_id)
-          #grab size? original or small
+          #grab size? leaderboard or banner
     			if !ad.nil?
       			ad.display_count += 1
       			ad.save
