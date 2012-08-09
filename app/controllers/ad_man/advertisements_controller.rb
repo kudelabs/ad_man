@@ -88,4 +88,12 @@ class AdMan::AdvertisementsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  # Click Through
+  def click_through
+    @advertisement = AdMan::Advertisement.find(params[:id])
+    @advertisement.click_count += 1 
+    @advertisement.save
+    redirect_to @advertisement.destination_url
+  end
 end

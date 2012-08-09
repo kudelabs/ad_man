@@ -15,7 +15,7 @@ module AdMan
 
   	def Advertisement.render_random_ad(keyword_id)
 #  		ads = Advertisement.find_all_by_keyword_id(keyword_id)
-			ads = Advertisement.where("keyword_id = ? AND start_date <= ? AND_date >= ? ", keyword_id, Date.today, Date.today)
+			ads = Advertisement.where("keyword_id = ? AND start_date <= ? AND end_date >= ? ", keyword_id, Date.today, Date.today)
 			if !ads.blank?
 				total_times = 1.0
 				total_priority = 0.0
