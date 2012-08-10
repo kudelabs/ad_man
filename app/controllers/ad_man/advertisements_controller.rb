@@ -47,7 +47,7 @@ class AdMan::AdvertisementsController < ApplicationController
   def create
     @advertisement = AdMan::Advertisement.new(params[:advertisement])
     @advertisement.keyword_id = params[:keyword_id]
-		@advertisement.priority = params[:priority]
+	#	@advertisement.priority = params[:priority]
     respond_to do |format|
       if @advertisement.save
         format.html { redirect_to @advertisement, notice: 'Advertisement was successfully created.' }
