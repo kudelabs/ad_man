@@ -1,8 +1,9 @@
 PATH
   remote: .
   specs:
-    ad_man (0.0.1)
-      rails (~> 3.2.7)
+    ad_man (0.0.2)
+      paperclip (~> 3.1)
+      rails (~> 3.2)
 
 GEM
   remote: http://rubygems.org/

@@ -2,7 +2,8 @@ module AdMan
   class Keyword < ActiveRecord::Base
     attr_accessible :name
 		has_many :advertisements, :dependent => :destroy
-		MAX_COUNT = (AdMan.max_count)?(AdMan.max_count):5
+    validates :name, :presence => true, :uniqueness => true	
+  	MAX_COUNT = (AdMan.max_count)?(AdMan.max_count):5
 
 		def to_s
 			name

@@ -1,7 +1,8 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  name: MyString
+test_keyword:
+  id: 1
+  name: test
 
 two:
   name: MyString

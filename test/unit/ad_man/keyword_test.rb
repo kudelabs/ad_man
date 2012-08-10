@@ -2,8 +2,10 @@ require 'test_helper'
 
 module AdMan
   class KeywordTest < ActiveSupport::TestCase
-    # test "the truth" do
-    #   assert true
-    # end
+    test "should not save keyword without name" do
+      keyword = Keyword.new
+      assert !keyword.save, "Saved the post without a keyword name"
+    end
   end
+  
 end

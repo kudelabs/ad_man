@@ -10,6 +10,7 @@ module AdMan
       get :index
       assert_response :success
       assert_not_nil assigns(:advertisements)
+      assert_not_nil assigns(:keywords)
     end
   
     test "should get new" do
@@ -20,6 +21,8 @@ module AdMan
     test "should create advertisement" do
       assert_difference('Advertisement.count') do
         post :create, advertisement: { destination_url: @advertisement.destination_url, title: @advertisement.title }
+          #  ad_banner: @advertisement.ad_banner, :keyword_id, :start_date, :end_date
+          #  } 
       end
   
       assert_redirected_to advertisement_path(assigns(:advertisement))
