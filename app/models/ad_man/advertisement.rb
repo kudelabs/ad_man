@@ -8,33 +8,32 @@ module AdMan
   	validates_attachment :ad_banner, :presence => true, 
   		:content_type => { :content_type => (AdMan.content_type)?(AdMan.content_type):
 				["image/jpg","image/bmp","image/png", "image/gif", "image/jpeg"] 	},
-  		:size => { :in => 0..(AdMan.max_image_size)?(AdMan.max_image_size):50.kilobytes } 
+  		:size => { :in => 0..((AdMan.max_image_size)?(AdMan.max_image_size):50).kilobytes } 
   	validates_presence_of :destination_url, :title, :keyword_id, :priority
 		validates_uniqueness_of :title
   	validate :image_dimensions, :on => :create
 
-  	def Advertisement.render_random_ad(keyword_id)
+  	def Advertisement.render_random_ad(keyword_id = nil)
 #  		ads = Advertisement.find_all_by_keyword_id(keyword_id)
-			ads = Advertisement.where("keyword_id = ? AND start_date <= ? AND end_date >= ? ", keyword_id, Date.today, Date.today)
-			if !ads.blank?
-				total_times = 1.0
-				total_priority = 0.0
-				ads.each { |advertisement| 
-					total_times += advertisement.display_count
-					total_priority += advertisement.priority
-				}
-				ad = ads[rand(ads.size)]
-				while((ad.display_count / total_times) > (ad.priority / total_priority))
+			if !keyword_id.nil?
+				ads = Advertisement.where("keyword_id = ? AND start_date <= ? AND end_date >= ? ", keyword_id, Date.today, Date.today)
+				if !ads.blank?
+					total_times = 1.0
+					total_priority = 0.0
+					ads.each { |advertisement| 
+						total_times += advertisement.display_count
+						total_priority += advertisement.priority
+					}
 					ad = ads[rand(ads.size)]
+					while((ad.display_count / total_times) > (ad.priority / total_priority))
+						ad = ads[rand(ads.size)]
+					end
+					ad
 				end
-				ad
+			else
+				ad = Advertisement.all[rand(Advertisement.all.size)]
 			end
 	  end
-    
-		def Advertisement.render_random_ad
-			ads = Advertisement.all
-			ad = ads[rand(ads.size)]
-		end
 
   	private
     def image_dimensions
