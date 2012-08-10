@@ -32,7 +32,7 @@
 <br/>
 
 <div style="display:inline-block;">
-	<%= link_to 'Edit Keyword', edit_advertisement_path(@keyword), :method => :get %>
+	<%= link_to 'Edit Keyword', edit_keyword_path(@keyword), :method => :get %>
 	<%= link_to "Destroy", @keyword, :method => :delete,
 				:confirm => "Deleting Keyword, this cannot be undone.  WARNING: This will delete all advertisements connected with this keyword.  Please confirm.", :style => "color:#b94a48"%>
 	<%= link_to 'Back', advertisements_path, :method => :get %>
