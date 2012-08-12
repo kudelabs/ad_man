@@ -22,7 +22,6 @@ module AdMan
   		 req_url = request.env["REQUEST_PATH"].split("/")
     	 keyword_names = Keyword.all.map{ |keyword| keyword.name }
     	 keyword = req_url & keyword_names
-		   #return (keyword)?(keyword):(Keyword.all[rand(Keyword.all.size)])
 	     end
   end
 end

@@ -16,3 +16,8 @@ Ad_man works with Rails 3.2 onwards. You can add it to your Gemfile with:
 gem 'ad_man'
 ```
 
+After you install Ad_man and add it to your Gemfile, you need to run the generator:
+
+```console
+rails generate ad_man:install
+```

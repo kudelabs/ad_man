@@ -1,9 +1,12 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  title: MyString
-  destination_url: MyString
+rubyonrails:
+  id: 1
+  title: Ruby on Rails
+  destination_url: http://www.rubyonrails.org
+  keyword_id: 1
 
-two:
-  title: MyString
-  destination_url: MyString
+google:
+  id: 2
+  title: Google
+  destination_url: http://www.google.com

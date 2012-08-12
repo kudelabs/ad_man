@@ -8,14 +8,19 @@ module AdMan
   	validates_attachment :ad_banner, :presence => true, 
   		:content_type => { :content_type => (AdMan.content_type)?(AdMan.content_type):
 				["image/jpg","image/bmp","image/png", "image/gif", "image/jpeg"] 	},
-  		:size => { :in => 0..AdMan.max_image_size.kilobytes } 
+  		:size => { :in => 0..((AdMan.max_image_size)?(AdMan.max_image_size):50).kilobytes } 
   	validates_presence_of :destination_url, :title, :keyword_id, :priority
 		validates_uniqueness_of :title
   	validate :image_dimensions, :on => :create
+		after_initialize :init_priority
 
-  	def Advertisement.render_random_ad(keyword_id)
+  	def Advertisement.render_random_ad(keyword_id = nil)
 #  		ads = Advertisement.find_all_by_keyword_id(keyword_id)
-			ads = Advertisement.where("keyword_id = ? AND start_date <= ? AND end_date >= ? ", keyword_id, Date.today, Date.today)
+			if keyword_id.nil?
+				ads = Advertisement.where("start_date <= ? AND end_date >= ?", Date.today, Date.today)
+		  else 
+				ads = Advertisement.where("keyword_id = ? AND start_date <= ? AND end_date >= ? ", keyword_id, Date.today, Date.today)
+			end
 			if !ads.blank?
 				total_times = 1.0
 				total_priority = 0.0
@@ -30,11 +35,6 @@ module AdMan
 				ad
 			end
 	  end
-    
-		def Advertisement.render_random_ad
-			ads = Advertisement.all
-			ad = ads[rand(ads.size)]
-		end
 
   	private
     def image_dimensions
@@ -47,6 +47,10 @@ module AdMan
 										"must be image size: #{max_width}X#{max_height}.")
       end
     end
+
+		def init_priority
+			self.priority ||= 1
+		end
 	
   end
 end
