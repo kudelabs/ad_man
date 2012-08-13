@@ -41,6 +41,11 @@ Make sure to change references to the application using the main_app helper:
 <%= link_to "Advertising", main_app.ad_man_path %>
 ```
 
+One final change may be necessary in order to preview an image before saving, and that is to add this line to the admin view:
+```erb
+<%= javascript_include_tag "ad_man/advertisements.js" %>
+```
+
 ## Changing default values
 
 If you need to change the default values set by ad_man, you will need to create an ad_man.rb initializer in your config/initializers folder.  
@@ -72,3 +77,10 @@ To call advertisements by keyword:
 ```erb
 <%= link_to_ad @keyword.name %>
 ```
+
+
+## Copyright & Licensing
+
+Copyright (c) 2012 Kudelabs
+
+Released under the MIT License. See LICENSE for details.
