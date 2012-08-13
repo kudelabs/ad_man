@@ -41,7 +41,7 @@ Make sure to change references to the application using the main_app helper:
 <%= link_to "Advertising", main_app.ad_man_path %>
 ```
 
-## Changing Default Values
+## Changing default values
 
 If you need to change the default values set by ad_man, you will need to create an ad_man.rb initializer in your config/initializers folder.  
 
@@ -60,4 +60,15 @@ AdMan.content_type = ["image/jpg", "image/bmp", "image/png", "image/gif", "image
 
 # Configurable max advertising for keyword
 AdMan.max_count = 6
+```
+
+## Putting an advertisement in the view
+
+To put your advertisement in the view just add:
+```erb
+<%= link_to_ad %>
+```
+To call advertisements by keyword:
+```erb
+<%= link_to_ad @keyword.name %>
 ```
