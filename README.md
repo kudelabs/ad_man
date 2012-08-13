@@ -83,4 +83,4 @@ To call advertisements by keyword:
 
 Copyright (c) 2012 Kudelabs
 
-Released under the MIT License. See LICENSE for details.
+Released under MIT License. 
