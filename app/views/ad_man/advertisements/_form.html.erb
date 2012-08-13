@@ -31,10 +31,11 @@
 		<%= select_tag :keyword_id,  options_for_select(AdMan::Keyword.available.collect { |keyword| [keyword.name, keyword.id]})%>
 	<% else %>
 		<!-- for edit advertisement page -->
-		<%= select_tag :keyword_id,  options_for_select(AdMan::Keyword.available.collect { |keyword| [keyword.name, keyword.id]} | [[@advertisement.keyword.name, @advertisement.keyword_id]] ) %>
+					 <%= select_tag :keyword_id,  options_for_select(AdMan::Keyword.available.collect { |keyword| [keyword.name, keyword.id]} | [[@advertisement.keyword.name, @advertisement.keyword_id]],
+																													 :selected => @advertisement.keyword_id) %>
 	<% end %>
 	<% if AdMan::Keyword.unavailable.count > 0%>
-		<p><b><%= AdMan::Keyword.unavailable.collect { |keyword| keyword.name } %></b> keyword has already been used <%= AdMan::Keyword::MAX_COUNT %> times.</p>
+		<p>Warning: <b><%= AdMan::Keyword.unavailable.collect { |keyword| keyword.name } %></b> keyword has already been used <%= AdMan::Keyword::MAX_COUNT %> times.</p>
 	<% end %>
   </div><br />
 	<!--
