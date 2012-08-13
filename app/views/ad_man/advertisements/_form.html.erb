@@ -50,9 +50,7 @@
 	</div><br />
 	<div class="field">
 		<%=f.label :end_date %><br />
-		<!--
-		<#% TODO : end date should be 30 days plus %> -->
-		<%= date_select("advertisement", "end_date") %> 
+		<%= date_select("advertisement", "end_date", :default => 1.month.from_now) %> 
 	</div><br />
 
 
