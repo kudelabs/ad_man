@@ -77,7 +77,8 @@ To call advertisements by keyword:
 ```erb
 <%= link_to_ad @keyword.name %>
 ```
-
+## Authors
+Written by [David Strand](http://www.github.com/wspyder) and [Tyler Hu](http://www.github.com/tylerhu)
 
 ## Copyright & Licensing
 
