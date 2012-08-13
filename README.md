@@ -81,6 +81,6 @@ To call advertisements by keyword:
 
 ## Copyright & Licensing
 
-Copyright (c) 2012 Kudelabs
+Copyright (c) 2012 [Kudelabs](http://kudelabs.com), [Kudelabs on Github](http://github.com/kudelabs)
 
 Released under MIT License. 
