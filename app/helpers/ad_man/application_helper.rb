@@ -2,12 +2,12 @@ module AdMan
   module ApplicationHelper
       def link_to_ad(keyword = nil, size = "leaderboard")
     		keyword ||= get_keyword_from_url
-				if keyword && !keyword.blank? && !Keyword.find_by_name(keyword).nil?
+				if !keyword.blank? && !Keyword.find_by_name(keyword).nil?
     		  keyword_id = Keyword.find_by_name(keyword).id
     			ad = Advertisement.render_random_ad(keyword_id)
        	  #grab size? leaderboard or banner
-				else 
-					ad = Advertisement.render_random_ad
+     	  elsif keyword.blank?
+     	    ad = Advertisement.render_random_ad
 				end
     		if !ad.nil?
     			ad.display_count += 1
