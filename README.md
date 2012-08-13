@@ -73,9 +73,9 @@ To put your advertisement in the view just add:
 ```erb
 <%= link_to_ad %>
 ```
-To call advertisements by keyword:
+Currently there are three parameters that can control which ads get shown on your page.  :keyword, :size, and :display_on_all_pages.  
 ```erb
-<%= link_to_ad @keyword.name %>
+<%= link_to_ad :keyword => "Your Keyword", :size => "leaderboard", :display_on_all_pages => false %>
 ```
 ## Authors
 Written by [David Strand](http://www.github.com/wspyder) and [Tyler Hu](http://www.github.com/tylerhu)
