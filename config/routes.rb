@@ -3,5 +3,6 @@ AdMan::Engine.routes.draw do
   resources :advertisements
 
   root :to => "advertisements#index"
-  match 'advertisements/click_through' => 'advertisements#click_through'
+  match 'ad_man/advertisements/click_through' => 'advertisements#click_through'
+
 end

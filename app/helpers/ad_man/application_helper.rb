@@ -12,8 +12,8 @@ module AdMan
     		if !ad.nil?
     			ad.display_count += 1
     			ad.save
-    			link_to image_tag(ad.ad_banner.url(size)), { :controller => 'advertisements', :action => 'click_through', :id => ad.id }, 
-    			:method => :post, :target => '_blank'
+    			link_to image_tag(ad.ad_banner.url(size)), { :controller => 'ad_man/advertisements', :action => 'click_through', :id => ad.id }, 
+    			:target => '_blank', :method => :post 
     		end
     	end    
 

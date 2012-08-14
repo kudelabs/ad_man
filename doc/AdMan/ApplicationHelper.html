@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>module AdMan::ApplicationHelper - RDoc Documentation</title>
+
+<link type="text/css" media="screen" href="../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/darkfish.js"></script>
+
+
+<body id="top" class="module">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../index.html">Home</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>app/helpers/ad_man/application_helper.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li><a href="#method-i-get_keyword_from_url">#get_keyword_from_url</a>
+    
+    <li><a href="#method-i-link_to_ad">#link_to_ad</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="../Gemfile.html">Gemfile</a>
+  
+    <li class="file"><a href="../MIT-LICENSE.html">MIT-LICENSE</a>
+  
+    <li class="file"><a href="../Rakefile.html">Rakefile</a>
+  
+    <li class="file"><a href="../test/dummy/README_rdoc.html">README</a>
+  
+    <li class="file"><a href="../test/dummy/Rakefile.html">Rakefile</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../AdMan.html">AdMan</a>
+  
+    <li><a href="../AdMan/Advertisement.html">AdMan::Advertisement</a>
+  
+    <li><a href="../AdMan/AdvertisementTest.html">AdMan::AdvertisementTest</a>
+  
+    <li><a href="../AdMan/AdvertisementsController.html">AdMan::AdvertisementsController</a>
+  
+    <li><a href="../AdMan/AdvertisementsControllerTest.html">AdMan::AdvertisementsControllerTest</a>
+  
+    <li><a href="../AdMan/AdvertisementsHelper.html">AdMan::AdvertisementsHelper</a>
+  
+    <li><a href="../AdMan/AdvertisementsHelperTest.html">AdMan::AdvertisementsHelperTest</a>
+  
+    <li><a href="../AdMan/ApplicationController.html">AdMan::ApplicationController</a>
+  
+    <li><a href="../AdMan/ApplicationHelper.html">AdMan::ApplicationHelper</a>
+  
+    <li><a href="../AdMan/Engine.html">AdMan::Engine</a>
+  
+    <li><a href="../AdMan/InstallGenerator.html">AdMan::InstallGenerator</a>
+  
+    <li><a href="../AdMan/Keyword.html">AdMan::Keyword</a>
+  
+    <li><a href="../AdMan/KeywordTest.html">AdMan::KeywordTest</a>
+  
+    <li><a href="../AdMan/KeywordsController.html">AdMan::KeywordsController</a>
+  
+    <li><a href="../AdMan/KeywordsControllerTest.html">AdMan::KeywordsControllerTest</a>
+  
+    <li><a href="../AdMan/KeywordsHelper.html">AdMan::KeywordsHelper</a>
+  
+    <li><a href="../AdMan/KeywordsHelperTest.html">AdMan::KeywordsHelperTest</a>
+  
+    <li><a href="../Dummy.html">Dummy</a>
+  
+    <li><a href="../Dummy/Application.html">Dummy::Application</a>
+  
+    <li><a href="../AdManTest.html">AdManTest</a>
+  
+    <li><a href="../ApplicationController.html">ApplicationController</a>
+  
+    <li><a href="../ApplicationHelper.html">ApplicationHelper</a>
+  
+    <li><a href="../CreateAdManAdvertisements.html">CreateAdManAdvertisements</a>
+  
+    <li><a href="../CreateAdManKeywords.html">CreateAdManKeywords</a>
+  
+    <li><a href="../NavigationTest.html">NavigationTest</a>
+  
+    <li><a href="../Object.html">Object</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="module">module AdMan::ApplicationHelper</h1>
+
+  <div id="description" class="description">
+    
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-get_keyword_from_url" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_keyword_from_url</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>grab the keyword form request url</p>
+          
+
+          
+          <div class="method-source-code" id="get_keyword_from_url-source">
+            <pre><span class="ruby-comment"># File app/helpers/ad_man/application_helper.rb, line 21</span>
+       <span class="ruby-keyword">def</span> <span class="ruby-identifier">get_keyword_from_url</span>
+        <span class="ruby-identifier">req_url</span> = <span class="ruby-identifier">request</span>.<span class="ruby-identifier">env</span>[<span class="ruby-string">&quot;REQUEST_PATH&quot;</span>].<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;/&quot;</span>)
+<span class="ruby-identifier">keyword_names</span> = <span class="ruby-constant">Keyword</span>.<span class="ruby-identifier">all</span>.<span class="ruby-identifier">map</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">keyword</span><span class="ruby-operator">|</span> <span class="ruby-identifier">keyword</span>.<span class="ruby-identifier">name</span> }
+<span class="ruby-identifier">keyword</span> = <span class="ruby-identifier">req_url</span> &amp; <span class="ruby-identifier">keyword_names</span>
+    <span class="ruby-keyword">end</span></pre>
+          </div><!-- get_keyword_from_url-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- get_keyword_from_url-method -->
+
+    
+      <div id="method-i-link_to_ad" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">link_to_ad</span><span
+            class="method-args">(keyword = nil, size = "leaderboard")</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="link_to_ad-source">
+            <pre><span class="ruby-comment"># File app/helpers/ad_man/application_helper.rb, line 3</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">link_to_ad</span>(<span class="ruby-identifier">keyword</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">size</span> = <span class="ruby-string">&quot;leaderboard&quot;</span>)
+          <span class="ruby-identifier">keyword</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">get_keyword_from_url</span>
+                          <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">keyword</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-constant">Keyword</span>.<span class="ruby-identifier">find_by_name</span>(<span class="ruby-identifier">keyword</span>).<span class="ruby-identifier">nil?</span>
+            <span class="ruby-identifier">keyword_id</span> = <span class="ruby-constant">Keyword</span>.<span class="ruby-identifier">find_by_name</span>(<span class="ruby-identifier">keyword</span>).<span class="ruby-identifier">id</span>
+                  <span class="ruby-identifier">ad</span> = <span class="ruby-constant">Advertisement</span>.<span class="ruby-identifier">render_random_ad</span>(<span class="ruby-identifier">keyword_id</span>)
+    <span class="ruby-comment">#grab size? leaderboard or banner</span>
+    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">keyword</span>.<span class="ruby-identifier">blank?</span>
+      <span class="ruby-identifier">ad</span> = <span class="ruby-constant">Advertisement</span>.<span class="ruby-identifier">render_random_ad</span>
+                          <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">ad</span>.<span class="ruby-identifier">nil?</span>
+                  <span class="ruby-identifier">ad</span>.<span class="ruby-identifier">display_count</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+                  <span class="ruby-identifier">ad</span>.<span class="ruby-identifier">save</span>
+                  <span class="ruby-identifier">link_to</span> <span class="ruby-identifier">image_tag</span>(<span class="ruby-identifier">ad</span>.<span class="ruby-identifier">ad_banner</span>.<span class="ruby-identifier">url</span>(<span class="ruby-identifier">size</span>)), { <span class="ruby-value">:controller</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'advertisements'</span>, <span class="ruby-value">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'click_through'</span>, <span class="ruby-value">:id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">ad</span>.<span class="ruby-identifier">id</span> }, 
+                  <span class="ruby-value">:method</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:post</span>, <span class="ruby-value">:target</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'_blank'</span>
+          <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span></pre>
+          </div><!-- link_to_ad-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- link_to_ad-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+
