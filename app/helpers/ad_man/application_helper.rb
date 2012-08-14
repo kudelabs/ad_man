@@ -19,9 +19,11 @@ module AdMan
 
     	#grab the keyword form request url
   	def get_keyword_from_url
-  		req_url = request.env["REQUEST_PATH"].split("/")
-    	keyword_names = Keyword.all.map{ |keyword| keyword.name }
-    	keyword = req_url & keyword_names
+			if !request.env["REQUEST_PATH"].nil?
+  			req_url = request.env["REQUEST_PATH"].split("/")
+    		keyword_names = Keyword.all.map{ |keyword| keyword.name }
+    		keyword = req_url & keyword_names
+			end
 	  end
 	end
 end
