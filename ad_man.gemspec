@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.version     = AdMan::VERSION.dup
   s.authors     = ['David Strand', 'Tyler Hu']
   s.email       = ["connect@kudelabs.com"]
-  s.homepage    = "http://github.com/wspyder/ad_man"
+  s.homepage    = "http://github.com/kudelabs/ad_man"
   s.summary     = "An advertising manager mountable engine"
   s.description = "An advertising manager mountable engine"
 
