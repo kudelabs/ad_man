@@ -1,21 +1,21 @@
 module AdMan
   class Advertisement < ActiveRecord::Base
-    attr_accessible :destination_url, :title, :ad_banner, :display_count, :priority, :start_date, :end_date, :click_count
-    validates_with AttachmentPresenceValidator, :attributes => :ad_banner
-    belongs_to :keyword
-    has_attached_file :ad_banner, :styles => { :leaderboard => (AdMan.leaderboard_size)?(AdMan.leaderboard_size):'728X90', 
+		attr_accessible :destination_url, :title, :ad_banner, :display_count, :priority, :start_date, :end_date, :click_count
+		validates_with AttachmentPresenceValidator, :attributes => :ad_banner
+		belongs_to :keyword
+		has_attached_file :ad_banner, :styles => { :leaderboard => (AdMan.leaderboard_size)?(AdMan.leaderboard_size):'728X90', 
 																							:banner => (AdMan.banner_size)?(AdMan.banner_size):'468X60' }
-  	validates_attachment :ad_banner, :presence => true, 
-  		:content_type => { :content_type => (AdMan.content_type)?(AdMan.content_type):
+		validates_attachment :ad_banner, :presence => true, 
+			:content_type => { :content_type => (AdMan.content_type)?(AdMan.content_type):
 				["image/jpg","image/bmp","image/png", "image/gif", "image/jpeg"] 	},
-  		:size => { :in => 0..((AdMan.max_image_size)?(AdMan.max_image_size):50).kilobytes } 
-  	validates_presence_of :destination_url, :title, :keyword_id, :priority
+			:size => { :in => 0..((AdMan.max_image_size)?(AdMan.max_image_size):50).kilobytes } 
+		validates_presence_of :destination_url, :title, :keyword_id, :priority
 		validates_uniqueness_of :title
-  	validate :image_dimensions, :on => :create
+		validate :image_dimensions, :on => :create
 		after_initialize :init_priority
-
-  	def Advertisement.render_random_ad(keyword_id = nil)
-#  		ads = Advertisement.find_all_by_keyword_id(keyword_id)
+		
+		def Advertisement.render_random_ad(keyword_id = nil)
+		#		ads = Advertisement.find_all_by_keyword_id(keyword_id)
 			if keyword_id.nil?
 				ads = Advertisement.where("start_date <= ? AND end_date >= ?", Date.today, Date.today)
 		  else 
@@ -34,25 +34,24 @@ module AdMan
 				end
 				ad
 			end
-	  end
-
-  	private
-    def image_dimensions
-      temp_file = ad_banner.queued_for_write[:leaderboard] #get the file
-      dimensions = Paperclip::Geometry.from_file(temp_file)        
+		end
+		
+		private
+		def image_dimensions
+		  temp_file = ad_banner.queued_for_write[:leaderboard] #get the file
+		  dimensions = Paperclip::Geometry.from_file(temp_file)        
 			max_width = (AdMan.image_dimensions_width)?(AdMan.image_dimensions_width):728
 			max_height = (AdMan.image_dimensions_height)?(AdMan.image_dimensions_height):90
-      if (dimensions.width > max_width) || (dimensions.height > max_height)
-         errors.add("banner_dimmensions",
+		  if (dimensions.width > max_width) || (dimensions.height > max_height)
+		     errors.add("banner_dimmensions",
 										"must be image size: #{max_width}X#{max_height}.")
-      end
-    end
-
+		  end
+		end
+		
 		def init_priority
 			self.priority ||= 1
 		end
-	
-  end
+	end
 end
 
 
