@@ -82,6 +82,6 @@ Written by [David Strand](http://www.github.com/wspyder) and [Tyler Hu](http://w
 
 ## Copyright & Licensing
 
-Copyright (c) 2012 [Kudelabs](http://kudelabs.com), [Kudelabs on Github](http://github.com/kudelabs)
+Copyright (c) 2012 [Kudelabs](http://kudelabs.com)
 
 Released under MIT License. 
