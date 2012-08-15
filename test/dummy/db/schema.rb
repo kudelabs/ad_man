@@ -11,28 +11,6 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120808101547) do
-
-  create_table "ad_man_advertisements", :force => true do |t|
-    t.string   "title"
-    t.string   "destination_url"
-    t.datetime "created_at",                            :null => false
-    t.datetime "updated_at",                            :null => false
-    t.string   "ad_banner_file_name"
-    t.string   "ad_banner_content_type"
-    t.integer  "ad_banner_file_size"
-    t.datetime "ad_banner_updated_at"
-    t.integer  "display_count",          :default => 0, :null => false
-    t.integer  "priority"
-    t.date     "start_date"
-    t.date     "end_date"
-    t.integer  "keyword_id"
-  end
-
-  create_table "ad_man_keywords", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
+ActiveRecord::Schema.define(:version => 0) do
 
 end

@@ -44,3 +44,11 @@ function showFormError(msg, form) {
   form.find('div.errors').remove();
   form.prepend(errorDiv);
 }
+
+function showAd(key) {
+		$.ajax({
+			url: "/ad_man/advertisements/get_ad/" + key, 
+			dataType: "script", 
+			success: function(data){}
+		});
+}
