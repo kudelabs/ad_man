@@ -22,9 +22,8 @@ After you install Ad_man and add it to your Gemfile, you need to run the generat
 rails generate ad_man:install
 ```
 
-Install the migrations, and rake the database:
+This will install the migrations and a few controller files, then just rake the database:
 ```console
-rake ad_man:install:migrations
 rake db:migrate
 ```
 
