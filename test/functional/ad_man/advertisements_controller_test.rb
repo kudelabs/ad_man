@@ -64,5 +64,10 @@ module AdMan
 
       assert_redirected_to advertisements_path
     end
+
+    test "should redirect on click through" do
+      get :click_through, id: @advertisement.id
+      assert_redirected_to @advertisement.destination_url
+    end
   end
 end
