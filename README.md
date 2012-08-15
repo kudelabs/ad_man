@@ -40,23 +40,6 @@ Make sure to change references to the application using the main_app helper:
 <%= link_to "Advertising", main_app.ad_man_path %>
 ```
 
-## Ad_man and Javascript
-Ad_man supports inserting an advertisement using jQuery.  It also uses jQuery in the backend when creating new ads.  To use this functionality, include this line in the view:
-```erb
-<%= javascript_include_tag "ad_man/advertisements.js" %>
-```
-
-You can pass the keyword name through the showAd(); function.  
-```erb
-<script>
-showAd('<%= @key %>');
-</script>
-```
-Then ad an element with the id 'advertisement' where you want the advertisement to show.  
-```erb
-<div id="advertisement"></div>
-```
-
 ## Changing default values
 
 If you need to change the default values set by ad_man, you will need to create an ad_man.rb initializer in your config/initializers folder.  
@@ -88,8 +71,30 @@ Currently there are three parameters that can control which ads get shown on you
 ```erb
 <%= link_to_ad :keyword => "Your Keyword", :size => "leaderboard", :display_on_all_pages => false %>
 ```
+
+## Ad_man and Javascript
+Ad_man supports inserting an advertisement using jQuery.  It also uses jQuery in the backend when creating new ads.  To use this functionality, include this line in the view:
+```erb
+<%= javascript_include_tag "ad_man/advertisements.js" %>
+```
+
+You can pass the keyword name through the showAd(); function.  
+```erb
+<script>
+// showAd(keyword);
+showAd('<%= @keyword %>');  // inserts a value from ruby in erb
+</script>
+```
+Then ad a `<DIV>` element with the id 'advertisement' where you want the advertisement to show.  
+```erb
+<div id="advertisement"></div>
+```
+
 ## Authors
 Written by [David Strand](http://www.github.com/wspyder) and [Tyler Hu](http://www.github.com/tylerhu)
+
+## Contributors
+[Matenia Rossides](http://www.github.com/matenia)
 
 ## Copyright & Licensing
 
