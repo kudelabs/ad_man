@@ -40,9 +40,21 @@ Make sure to change references to the application using the main_app helper:
 <%= link_to "Advertising", main_app.ad_man_path %>
 ```
 
-One final change may be necessary in order to preview an image before saving, and that is to add this line to the admin view:
+## Ad_man and Javascript
+Ad_man supports inserting an advertisement using jQuery.  It also uses jQuery in the backend when creating new ads.  To use this functionality, include this line in the view:
 ```erb
 <%= javascript_include_tag "ad_man/advertisements.js" %>
+```
+
+You can pass the keyword name through the showAd(); function.  
+```erb
+<script>
+showAd('<%= @key %>');
+</script>
+```
+Then ad an element with the id 'advertisement' where you want the advertisement to show.  
+```erb
+<div id="advertisement"></div>
 ```
 
 ## Changing default values
