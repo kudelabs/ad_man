@@ -11,14 +11,15 @@ module AdMan
     end
     
     protected
-    	#grab the keyword form request url
-    	def get_keyword_from_url
-  			if request.env["REQUEST_PATH"]
-    			req_url = request.env["REQUEST_PATH"].split("/")
-      		keyword_names = Keyword.all.map{ |keyword| keyword.name }
-      		keyword = req_url & keyword_names
-  			end
-  	  end
+      #grab the keyword form request url
+      def get_keyword_from_url
+        if request.env["REQUEST_PATH"]
+          req_url = request.env["REQUEST_PATH"].split("/")
+          keyword_names = Keyword.all.map{ |keyword| keyword.name }
+          keyword = req_url & keyword_names
+        end
+      end
+    
 	  
   	  def ad_select(keyword, size)
     		keyword ||= get_keyword_from_url

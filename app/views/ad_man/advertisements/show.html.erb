@@ -34,6 +34,6 @@
 <div style="display:inline-block;">
 	<%= link_to 'Edit', edit_advertisement_path(@advertisement), :method => :get %>
 	<%= link_to "Destroy", @advertisement, :method => :delete,
-				:confirm => "Deleting Advertisement, this cannot be undone.  Please confirm.", :style => "color:#b94a48"%>
+    :data => { :confirm => "Deleting Advertisement, this cannot be undone. Please confirm."}, :style => "color:#b94a48"%>
 	<%= link_to 'Back', advertisements_path, :method => :get %>
 </div>
