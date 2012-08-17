@@ -1,2 +1,2 @@
 $('div#advertisement').html('<%= link_to image_tag(@ad.ad_banner.url), 
-	click_through_path(@ad.id),  :target => "_blank", :method => :post %>');
+	ad_man.click_through_advertisements_path(@ad.id),  :target => "_blank", :method => :post %>');
