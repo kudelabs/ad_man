@@ -1,13 +1,17 @@
 module AdMan
   module ApplicationHelper
-    def link_to_ad(keyword = nil, size = "leaderboard")
-      ad = ad_select(keyword, size)
+#    def link_to_ad(keyword = nil, size = "leaderboard")
+		def link_to_ad(hash = {:keyword => nil, :size => "leaderboard"})
+			keyword = hash[:keyword]
+			size = hash[:size]
+      ad = ad_select(keyword)
       link_to image_tag(ad.ad_banner.url(size)), { :controller => 'ad_man/advertisements', :action => 'click_through', :id => ad.id },
       :target => '_blank', :method => :post
     end
     
     def js_link_to_ad(keyword)
-      ad_select(keyword, size= "leaderboard")
+#      ad_select(keyword, size= "leaderboard")
+			ad_select(keyword)
     end
     
     protected
@@ -21,20 +25,21 @@ module AdMan
       end
     
 	  
-  	  def ad_select(keyword, size)
+  	  def ad_select(keyword)
     		keyword ||= get_keyword_from_url
-  			if keyword && !keyword.blank? && !Keyword.find_by_name(keyword).nil?
+  			if keyword && !keyword.blank? && Keyword.find_by_name(keyword)
     		  keyword_id = Keyword.find_by_name(keyword).id
     			ad = Advertisement.render_random_ad(keyword_id)
        	  #grab size? leaderboard or banner
      	  elsif keyword.nil? || keyword.blank?
      	    ad = Advertisement.render_random_ad
   			end
-    		if !ad.nil?
+    		if ad
     			ad.display_count += 1 
     			ad.save
     			ad
     		end
     	end
+				
 	end
 end
