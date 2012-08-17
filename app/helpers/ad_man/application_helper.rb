@@ -2,8 +2,7 @@ module AdMan
   module ApplicationHelper
     def link_to_ad(keyword = nil, size = "leaderboard")
       ad = ad_select(keyword, size)
-      link_to image_tag(ad.ad_banner.url(size)), { :controller => 'ad_man/advertisements', :action => 'click_through', :id => ad.id },
-      :target => '_blank', :method => :post
+      link_to image_tag(ad.ad_banner.url(size)), ad_man.click_through_advertisements_path(ad.id), :target => '_blank', :method => :post
     end
     
     def js_link_to_ad(keyword)
