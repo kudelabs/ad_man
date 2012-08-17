@@ -8,7 +8,9 @@
 	
 	<script>
 	// showAd(keyword)
-	showAd('<%= AdMan::Keyword.first.name %>'); //
+	<% if AdMan::Keyword.first %>
+		showAd('<%= AdMan::Keyword.first.name %>'); //
+	<% end %>
 	</script>
 	
   <%= csrf_meta_tags %>

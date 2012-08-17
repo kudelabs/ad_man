@@ -1,16 +1,17 @@
 module AdMan
   module ApplicationHelper
-#    def link_to_ad(keyword = nil, size = "leaderboard")
-		def link_to_ad(hash = {:keyword => nil, :size => "leaderboard"})
-			keyword = hash[:keyword]
-			size = hash[:size]
+    def link_to_ad(keyword = nil, size = "leaderboard")
+#		def link_to_ad(hash = {:keyword => nil, :size => "leaderboard"})
+#			keyword = hash[:keyword]
+#			size = hash[:size]
       ad = ad_select(keyword)
-      link_to image_tag(ad.ad_banner.url(size)), { :controller => 'ad_man/advertisements', :action => 'click_through', :id => ad.id },
-      :target => '_blank', :method => :post
+			if ad 
+      	link_to image_tag(ad.ad_banner.url(size)), { :controller => 'ad_man/advertisements', :action => 'click_through', :id => ad.id },
+      	:target => '_blank', :method => :post
+			end
     end
     
     def js_link_to_ad(keyword)
-#      ad_select(keyword, size= "leaderboard")
 			ad_select(keyword)
     end
     
