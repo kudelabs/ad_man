@@ -1,6 +1,8 @@
 class AdMan::AdvertisementsController < ApplicationController
   # GET /advertisements
-  # GET /advertisements.json
+  # GET /advertisements.json  
+  include AdMan::ApplicationHelper
+  
   def index
     @advertisements = AdMan::Advertisement.all
 		
@@ -96,4 +98,11 @@ class AdMan::AdvertisementsController < ApplicationController
     @advertisement.save
     redirect_to @advertisement.destination_url
   end
+  
+  def get_ad()
+    keyword = params[:id]
+		@size = params[:size]
+    @ad = js_link_to_ad(keyword)
+  end
+  
 end

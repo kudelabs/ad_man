@@ -5,11 +5,23 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
 	<%= javascript_include_tag "ad_man/advertisements.js" %>
+	
+	<script>
+	// showAd(keyword)
+	<% if AdMan::Keyword.first %>
+		AdMan.showAd('<%= AdMan::Keyword.first.name %>', 'banner'); //
+	<% end %>
+	</script>
+	
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
 <%= link_to_ad %>
+<hr/>
+
+<%= yield %>
+
+<div id="advertisement"></div>
 </body>
 </html>

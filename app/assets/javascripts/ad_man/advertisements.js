@@ -44,3 +44,13 @@ function showFormError(msg, form) {
   form.find('div.errors').remove();
   form.prepend(errorDiv);
 }
+AdMan = {
+	//function showAd(key) {
+	showAd: function(key, size) {
+		$.ajax({
+			url: "/ad_man/advertisements/get_ad/" + key + "/" + size,
+			dataType: "script", 
+			success: function(data){}
+		});
+	}
+}
