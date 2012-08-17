@@ -9,7 +9,7 @@
 	<script>
 	// showAd(keyword)
 	<% if AdMan::Keyword.first %>
-		showAd('<%= AdMan::Keyword.first.name %>'); //
+		AdMan.showAd('<%= AdMan::Keyword.first.name %>', 'banner'); //
 	<% end %>
 	</script>
 	
