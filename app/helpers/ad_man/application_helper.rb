@@ -2,14 +2,14 @@ module AdMan
   module ApplicationHelper
     def link_to_ad(keyword = nil, size = "leaderboard")
       keyword ||= get_keyword_from_url
-      if keyword && !keyword.blank? && !Keyword.find_by_name(keyword).nil?
+      if keyword.present? && Keyword.find_by_name(keyword).present?
         keyword_id = Keyword.find_by_name(keyword).id
         ad = Advertisement.render_random_ad(keyword_id)
         #grab size? leaderboard or banner
-      elsif keyword.nil? || keyword.blank?
+      elsif keyword.blank?
         ad = Advertisement.render_random_ad
       end
-      if !ad.nil?
+      if ad.present?
         ad.display_count += 1
         ad.save
         link_to image_tag(ad.ad_banner.url(size)), ad_man.click_through_advertisements_path(ad.id), :target => '_blank', :method => :post 
