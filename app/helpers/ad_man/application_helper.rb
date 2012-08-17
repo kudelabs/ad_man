@@ -6,8 +6,7 @@ module AdMan
 #			size = hash[:size]
       ad = ad_select(keyword)
 			if ad 
-      	link_to image_tag(ad.ad_banner.url(size)), { :controller => 'ad_man/advertisements', :action => 'click_through', :id => ad.id },
-      	:target => '_blank', :method => :post
+      	link_to image_tag(ad.ad_banner.url(size)), ad_man.click_through_advertisements_path(ad.id), :target => '_blank', :method => :post
 			end
     end
     
