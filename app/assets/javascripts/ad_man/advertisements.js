@@ -46,11 +46,11 @@ function showFormError(msg, form) {
 }
 AdMan = {
 	//function showAd(key) {
-	showAd: function(key, size, div) {
-		$.ajax({
-			url: "/ad_man/advertisements/get_ad/" + key + "/" + size + "/" + div,
-			dataType: "script", 
-			success: function(data){}
-		});
-	}
+  showAd: function(key, size, div) {
+     $.ajax({
+	url: "/ad_man/advertisements/get_ad/" + key + "/" + size + "/" + div,
+	dataType: "script", 
+	success: function(data){}
+     });
+   }
 }
