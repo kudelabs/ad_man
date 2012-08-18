@@ -9,7 +9,8 @@
 	<script>
 	// showAd(keyword)
 	<% if AdMan::Keyword.first %>
-		AdMan.showAd('<%= AdMan::Keyword.first.name %>', 'banner'); //
+		AdMan.showAd('<%= AdMan::Keyword.first.name %>', 'banner', 'advertisement1'); //
+		AdMan.showAd('<%= AdMan::Keyword.last.name %>', 'leaderboard', 'advertisement2');
 	<% end %>
 	</script>
 	
@@ -23,6 +24,7 @@
 <%= yield %>
 
 
-<div id="advertisement"></div>
+<div id="advertisement1"></div>
+<div id="advertisement2"></div>
 </body>
 </html>

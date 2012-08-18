@@ -102,6 +102,7 @@ class AdMan::AdvertisementsController < ApplicationController
   def get_ad()
     keyword = params[:id]
 		@size = params[:size]
+		@div = params[:div]
     @ad = js_link_to_ad(keyword)
   end
   
