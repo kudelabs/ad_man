@@ -31,7 +31,7 @@ module AdMan
     	keyword_id = Keyword.find_by_name(keyword).id
     	ad = Advertisement.render_random_ad(keyword_id)
        	#grab size? leaderboard or banner
-      elsif keyword.nil? || keyword.blank?
+      elsif keyword.nil? || keyword.blank? || keyword == 'all'
      	ad = Advertisement.render_random_ad
       end
       if ad

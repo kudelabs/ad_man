@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    ad_man (0.0.6)
+    ad_man (0.0.9)
       paperclip (~> 3.1)
       rails (~> 3.2)
 
