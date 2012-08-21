@@ -97,7 +97,4 @@ Written by [David Strand](http://www.github.com/wspyder) and [Tyler Hu](http://w
 [Matenia Rossides](http://www.github.com/matenia)
 
 ## Copyright & Licensing
-
-Copyright (c) 2012 [Kudelabs](http://kudelabs.com)
-
-Released under MIT License. 
+This project is maintained by an intern team of developers and is freely available for commercial use under the terms of the MIT License. 
