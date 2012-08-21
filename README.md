@@ -78,13 +78,13 @@ Ad_man supports inserting an advertisement using jQuery.  It also uses jQuery in
 <%= javascript_include_tag "ad_man/advertisements.js" %>
 ```
 
-You can pass the keyword name, and a `<DIV>` id element to display an advertisement using the showAd(); function.  Supported `<DIV>` ids are: `leaderboard_ad` and `banner_ad`.  These will display either a leaderboard or banner ad respectively.  
+You can pass a `<DIV>` id element, the keyword name, and size to show an advertisement using the showAd(); function.  Currently supported sizes are: `leaderboard` and `banner`.  
 ```erb
 <script>
-AdMan.showAd('keyword', 'div_id');
+AdMan.showAd('div_id', 'keyword', 'size');
 </script>
 ```
-Then add a `<DIV>` element with the id you gave to the showAd function.  
+Then make sure you have a `<DIV>` element with the `div_id` you gave to the showAd function.  
 ```erb
 <div id="banner_ad"></div>
 ```
