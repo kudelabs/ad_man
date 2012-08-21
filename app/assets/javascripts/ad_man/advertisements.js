@@ -45,10 +45,10 @@ function showFormError(msg, form) {
   form.prepend(errorDiv);
 }
 AdMan = {
-	//function showAd(key) {
-  showAd: function(key, size, div) {
+	//function showAd(div, key, size) {
+  showAd: function(div, key, size) {
      $.ajax({
-	url: "/ad_man/advertisements/get_ad/" + key + "/" + size + "/" + div,
+	url: "/ad_man/advertisements/get_ad/" + div + "/" + key + "/" + size,
 	dataType: "script", 
 	success: function(data){}
      });
