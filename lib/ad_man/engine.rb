@@ -10,5 +10,9 @@ module AdMan
 				helper AdMan::ApplicationHelper
 			end
     end
+
+		initializer 'ad_man.assets.precompile' do |app|
+			app.config.assets.precompile += %w(advertisements.js)
+		end
   end
 end
