@@ -5,7 +5,7 @@ var ACCEPT_FILE_TYPE = /image\/(jpg|jpeg|png|gif|bmp)/i;
 
 function handleFileSelect(evt) {
   var files = evt.target.files; // FileList object
-  var form = $(evt.target).closest('form');
+  var form = jQuery(evt.target).closest('form');
 
   // Loop through the FileList and render image files as thumbnails.
   for (var i = 0, f; f = files[i]; i++) {
@@ -47,7 +47,7 @@ function showFormError(msg, form) {
 AdMan = {
 	//function showAd(div, key, size) {
   showAd: function(div, key, size) {
-     $.ajax({
+     jQuery.ajax({
 	url: "/ad_man/advertisements/get_ad/" + div + "/" + key + "/" + size,
 	dataType: "script", 
 	success: function(data){}
