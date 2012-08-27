@@ -27,11 +27,11 @@ module AdMan
 
     def ad_select(keyword)
       keyword ||= get_keyword_from_url
-      if keyword && !keyword.blank? && Keyword.find_by_name(keyword)
+      if keyword.present? && Keyword.find_by_name(keyword)
         keyword_id = Keyword.find_by_name(keyword).id
         ad = Advertisement.render_random_ad(keyword_id)
         #grab size? leaderboard or banner
-      elsif keyword.nil? || keyword.blank?
+      elsif keyword.blank?
         ad = Advertisement.render_random_ad
       end
       if ad
