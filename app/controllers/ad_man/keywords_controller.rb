@@ -13,9 +13,9 @@ class AdMan::KeywordsController < ApplicationController
   # GET /keywords/1
   # GET /keywords/1.json
   def show
-	  @keyword = AdMan::Keyword.find(params[:id])
-	  @advertisements = AdMan::Advertisement.find_all_by_keyword_id(params[:id])
-	  @keywords = AdMan::Keyword.all
+    @keyword = AdMan::Keyword.find(params[:id])
+    @advertisements = AdMan::Advertisement.find_all_by_keyword_id(params[:id])
+    @keywords = AdMan::Keyword.all
   end
   
   # GET /keywords/new

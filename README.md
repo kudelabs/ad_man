@@ -78,16 +78,15 @@ Ad_man supports inserting an advertisement using jQuery.  It also uses jQuery in
 <%= javascript_include_tag "ad_man/advertisements.js" %>
 ```
 
-You can pass the keyword name through the showAd(); function.  
+You can pass a `<DIV>` id element, the keyword name, and size to show an advertisement using the showAd(); function.  Currently supported sizes are: `leaderboard` and `banner`.  
 ```erb
 <script>
-// showAd(keyword);
-showAd('<%= @keyword %>');  // inserts a value from ruby in erb
+AdMan.showAd('div_id', 'keyword', 'size');
 </script>
 ```
-Then ad a `<DIV>` element with the id 'advertisement' where you want the advertisement to show.  
+Then make sure you have a `<DIV>` element with the `div_id` you gave to the showAd function.  
 ```erb
-<div id="advertisement"></div>
+<div id="banner_ad"></div>
 ```
 
 ## Authors
@@ -97,7 +96,4 @@ Written by [David Strand](http://www.github.com/wspyder) and [Tyler Hu](http://w
 [Matenia Rossides](http://www.github.com/matenia)
 
 ## Copyright & Licensing
-
-Copyright (c) 2012 [Kudelabs](http://kudelabs.com)
-
-Released under MIT License. 
+This project is maintained by an intern team of developers and is freely available for commercial use under the terms of the MIT License. 
