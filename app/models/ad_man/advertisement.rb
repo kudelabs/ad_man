@@ -5,8 +5,15 @@ module AdMan
     validates_with AttachmentPresenceValidator, :attributes => :ad_banner
     belongs_to :keyword
     has_attached_file :ad_banner, :styles => {
-      :leaderboard => (AdMan.leaderboard_size)?(AdMan.leaderboard_size):'728X90', 
-      :banner => (AdMan.banner_size)?(AdMan.banner_size):'468X60'
+      :leaderboard => AdMan.leaderboard_size,
+      :banner => AdMan.banner_size,
+      :mobile_leaderboard => AdMan.mobile_leaderboard_size,
+      :square => AdMan.square_size,
+      :small_square => AdMan.small_square_size,
+      :large_rectangle => AdMan.large_rectangle_size,
+      :inline_rectangle => AdMan.inline_rectangle_size,
+      :skyscraper => AdMan.skyscraper_size,
+      :wide_skyscraper => AdMan.wide_skyscraper_size
     }
     validates_attachment :ad_banner, :presence => true, 
       :content_type => {
