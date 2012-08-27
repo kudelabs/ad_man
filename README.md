@@ -48,6 +48,14 @@ If you need to change the default values set by ad_man, you will need to create 
 # AdMan Default Values
 AdMan.leaderboard_size = "728x90"
 AdMan.banner_size = "468x60"
+AdMan.mobile_leaderboard_size = "320X50"
+AdMan.square_size = "250X250"
+AdMan.small_square_size = "200X200"
+AdMan.large_rectangle_size = "336X280"
+AdMan.inline_rectangle_size = "300X250"
+AdMan.skyscraper_size = "120X600"
+AdMan.wide_skyscraper_size = "160X600"
+
 AdMan.max_image_size = 50 # 50Kb maximum image size
 
 # These are configurable dimensions (currently leaderboard default)
