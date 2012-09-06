@@ -20,7 +20,7 @@ module AdMan
     def get_keyword_from_url
       if request.env["REQUEST_PATH"]
         req_url = request.env["REQUEST_PATH"].split("/")
-        keyword_names = Keyword.all.map{ |keyword| keyword.name }
+        keyword_names = Keyword.all.map(&:name)
         keyword = req_url & keyword_names
       end
     end
