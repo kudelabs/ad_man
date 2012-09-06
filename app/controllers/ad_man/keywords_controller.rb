@@ -1,13 +1,10 @@
 class AdMan::KeywordsController < ApplicationController
-  
+  respond_to :html, :json 
   # GET /keywords
   # GET /keywords.json
   def index
     @keywords = AdMan::Keyword.all
-    respond_to do |format|
-      format.html
-      format.json { render json: @advertisements }
-    end
+    respond_with @keywords
   end
   
   # GET /keywords/1
