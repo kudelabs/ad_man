@@ -27,4 +27,10 @@ module AdMan
   self.inline_rectangle_size = '300X250'
   self.skyscraper_size = '120X600'
   self.wide_skyscraper_size = '160X600'
+
+  # other attributes
+  self.max_image_size = 50
+  self.content_type = ["image/jpg","image/bmp","image/png", "image/gif", "image/jpeg"]
+  self.image_dimensions_height = 90
+  self.image_dimensions_width = 728
 end

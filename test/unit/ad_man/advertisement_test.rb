@@ -3,13 +3,6 @@ require 'test_helper'
 module AdMan
   class AdvertisementTest < ActiveSupport::TestCase
 
-#    Paperclip responsible for this:    
-#    test "should not save advertisement without ad_banner" do
-#      advertisement = Advertisement.new
-#      advertisement.ad_banner = nil
-#      assert !advertisement.save, "should not save without ad_banner"
-#    end    
-    
     test "should not save advertisement without keyword" do
       advertisement = Advertisement.new
       advertisement.ad_banner = sample_file
@@ -40,5 +33,6 @@ module AdMan
       advertisement.destination_url = "test.com"
       assert advertisement.save, "is this valid information?"
     end
+
   end
 end
