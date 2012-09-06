@@ -17,9 +17,9 @@ module AdMan
     }
     validates_attachment :ad_banner, :presence => true, 
       :content_type => {
-        :content_type => (AdMan.content_type)?(AdMan.content_type): ["image/jpg","image/bmp","image/png", "image/gif", "image/jpeg"]
+        :content_type => AdMan.content_type
       },
-      :size => { :in => 0..((AdMan.max_image_size)?(AdMan.max_image_size):50).kilobytes }
+      :size => { :in => 0..(AdMan.max_image_size).kilobytes }
     validates_presence_of :destination_url, :title, :keyword_id, :priority
     validates_uniqueness_of :title
     validate :image_dimensions, :on => :create
@@ -45,7 +45,7 @@ module AdMan
     private
 
     def self.fetch_ads(keyword_id=nil)
-      if keyword_id.nil?
+      if keyword_id.blank?
         where("start_date <= ? AND end_date >= ?", Date.today, Date.today)
       else 
         where("keyword_id = ? AND start_date <= ? AND end_date >= ? ", keyword_id, Date.today, Date.today)
@@ -55,8 +55,8 @@ module AdMan
     def image_dimensions
       temp_file = ad_banner.queued_for_write[:leaderboard] #get the file
       dimensions = Paperclip::Geometry.from_file(temp_file)        
-      max_width = (AdMan.image_dimensions_width)?(AdMan.image_dimensions_width):728
-      max_height = (AdMan.image_dimensions_height)?(AdMan.image_dimensions_height):90
+      max_width = AdMan.image_dimensions_width
+      max_height = AdMan.image_dimensions_height
       if (dimensions.width > max_width) || (dimensions.height > max_height)
         errors.add("banner_dimmensions",
                    "must be image size: #{max_width}X#{max_height}.")
