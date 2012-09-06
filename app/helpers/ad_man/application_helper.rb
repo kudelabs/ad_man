@@ -25,14 +25,14 @@ module AdMan
       end
     end
 
-    def ad_select(keyword)
+    def ad_select(keyword=nil)
       keyword ||= get_keyword_from_url
-      if keyword.present? && Keyword.find_by_name(keyword)
+      ad = if keyword.present? && Keyword.find_by_name(keyword)
         keyword_id = Keyword.find_by_name(keyword).id
-        ad = Advertisement.render_random_ad(keyword_id)
+        Advertisement.render_random_ad(keyword_id)
         #grab size? leaderboard or banner
       elsif keyword.blank? || keyword == 'all'
-        ad = Advertisement.render_random_ad
+        Advertisement.render_random_ad
       end
       if ad
         ad.display_count += 1 
