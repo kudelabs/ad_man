@@ -19,10 +19,7 @@ class AdMan::KeywordsController < ApplicationController
   # GET /keywords/new.json
   def new
     @keyword = AdMan::Keyword.new
-    respond_to do |format|
-      format.html
-      format.json { render json: @keyword }
-    end
+    respond_with(@keyword)
   end
   
    # GET /keywords/1/edit
