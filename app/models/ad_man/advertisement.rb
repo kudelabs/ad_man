@@ -25,13 +25,8 @@ module AdMan
     validate :image_dimensions, :on => :create
     after_initialize :init_priority
 
-    def Advertisement.render_random_ad(keyword_id = nil)
-      #		ads = Advertisement.find_all_by_keyword_id(keyword_id)
-      if keyword_id.nil?
-        ads = Advertisement.where("start_date <= ? AND end_date >= ?", Date.today, Date.today)
-      else 
-        ads = Advertisement.where("keyword_id = ? AND start_date <= ? AND end_date >= ? ", keyword_id, Date.today, Date.today)
-      end
+    def self.render_random_ad(keyword_id = nil)
+      ads = fetch_ads(keyword_id)
       if ads.present? 
         total_times = 1.0
         total_priority = 0.0
@@ -48,6 +43,15 @@ module AdMan
     end
 
     private
+
+    def self.fetch_ads(keyword_id=nil)
+      if keyword_id.nil?
+        where("start_date <= ? AND end_date >= ?", Date.today, Date.today)
+      else 
+        where("keyword_id = ? AND start_date <= ? AND end_date >= ? ", keyword_id, Date.today, Date.today)
+      end
+    end
+
     def image_dimensions
       temp_file = ad_banner.queued_for_write[:leaderboard] #get the file
       dimensions = Paperclip::Geometry.from_file(temp_file)        
