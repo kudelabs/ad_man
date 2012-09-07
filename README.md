@@ -1,6 +1,9 @@
 Ad_man
 ======
 
+[![Build Status](https://secure.travis-ci.org/matenia/ad_man.png)](http://travis-ci.org/matenia/ad_man)
+[![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/matenia/ad_man)
+
 Ad_man is an advertising manager mountable engine.  It allows the user to upload and manage advertising banners, and provides an easy to use helper for inserting the banners on your website.  Also counts the number of times an ad has shown, and the number of times an advertisement has been clicked on.  The user must set a keyword for each ad.
 
 Currently supports two image sizes for advertising: Leaderboard 728 x 90 and Banner 468 x 60. 

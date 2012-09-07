@@ -1,40 +1,26 @@
 class AdMan::KeywordsController < ApplicationController
-  
-  # GET /keywords
-  # GET /keywords.json
+  respond_to :html, :json 
+
   def index
     @keywords = AdMan::Keyword.all
-    respond_to do |format|
-      format.html
-      format.json { render json: @advertisements }
-    end
+    respond_with @keywords
   end
   
-  # GET /keywords/1
-  # GET /keywords/1.json
   def show
     @keyword = AdMan::Keyword.find(params[:id])
     @advertisements = AdMan::Advertisement.find_all_by_keyword_id(params[:id])
     @keywords = AdMan::Keyword.all
   end
   
-  # GET /keywords/new
-  # GET /keywords/new.json
   def new
     @keyword = AdMan::Keyword.new
-    respond_to do |format|
-      format.html
-      format.json { render json: @keyword }
-    end
+    respond_with(@keyword)
   end
   
-   # GET /keywords/1/edit
   def edit
     @keyword = AdMan::Keyword.find(params[:id])
   end
   
-  # POST /keywords
-  # POST /keywords.json
   def create 
     @keyword = AdMan::Keyword.new(params[:keyword])
     respond_to do |format|
@@ -48,8 +34,6 @@ class AdMan::KeywordsController < ApplicationController
     end        
   end
   
-  # PUT /keywords/1
-  # PUT /keywords/1.json
   def update 
     @keyword = AdMan::Keyword.find(params[:id])
     respond_to do |format|
@@ -63,8 +47,6 @@ class AdMan::KeywordsController < ApplicationController
     end
   end
   
-  # DELETE /keywords/1
-  # DELETE /keywords/1.json
   def destroy 
     @keyword = AdMan::Keyword.find(params[:id])
     @keyword.destroy
