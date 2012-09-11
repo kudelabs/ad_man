@@ -11,11 +11,11 @@
     </div>
   <% end %>
 
-	<div class="field">
-		<%= f.label :ad_banner, "Acceptable sizes: 728x90 or 468x60" %><br />
-		<%= f.file_field :ad_banner %>	
-		<div class="preview"></div>
-	</div><br />
+  <div class="field">
+    <%= f.label :ad_banner, "Acceptable sizes: 728x90 or 468x60" %><br />
+    <%= f.file_field :ad_banner %>	
+    <div class="preview"></div>
+  </div><br />
   <div class="field">
     <%= f.label :title %><br />
     <%= f.text_field :title %>
@@ -26,26 +26,32 @@
   </div><br />
   <div class="field">
     <%= f.label :keyword %>
-    <%= f.collection_select :keyword_id, AdMan::Keyword.available, :id, :name, :include_blank => true %>
-	  <% if AdMan::Keyword.unavailable.count > 0 %>
-		  <p>Warning: <b><%= AdMan::Keyword.unavailable.map(&:name) %></b> keyword has already been used <%= AdMan::Keyword::MAX_COUNT %> times.</p>
-	  <% end %>
+    <% if @advertisement.keyword %>
+    <!-- for edit advertisement page -->
+      <%= f.collection_select :keyword_id, AdMan::Keyword.available | [@advertisement.keyword], :id, :name, :include_blank => true %>
+    <% else %>
+    <!-- for new advertisement page -->
+      <%= f.collection_select :keyword_id, AdMan::Keyword.available, :id, :name, :include_blank => true %>
+    <% end %>
+    <% if AdMan::Keyword.unavailable.count > 0 %>
+      <p>Warning: <b><%= AdMan::Keyword.unavailable.map(&:name) %></b> keyword has already been used <%= AdMan::Keyword::MAX_COUNT %> times.</p>
+    <% end %>
   </div>
   <br />
-	<!--
+  <!--
+    <div class="field">
+      <#%= f.label :priority %>
+      <#%= select_tag :priority, options_for_select(1..10) %>
+   </div><br />
+   -->
   <div class="field">
-		<#%= f.label :priority %>
-		<#%= select_tag :priority, options_for_select(1..10) %>
-	</div><br />
-	-->
-	<div class="field">
-		<%= f.label :start_date %><br />
-		<%= f.date_select :start_date %>
-	</div><br />
-	<div class="field">
-		<%= f.label :end_date %><br />
-		<%= f.date_select :end_date, :default => 1.month.from_now %> 
-	</div><br />
+    <%= f.label :start_date %><br />
+    <%= f.date_select :start_date %>
+  </div><br />
+  <div class="field">
+    <%= f.label :end_date %><br />
+    <%= f.date_select :end_date, :default => 1.month.from_now %> 
+  </div><br />
 
 
   <div class="actions">
