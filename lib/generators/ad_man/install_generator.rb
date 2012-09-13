@@ -7,7 +7,7 @@ module AdMan
     end
 
     def add_routes
-      route("mount AdMan::Engine => "/ad_man")
+      route("mount AdMan::Engine => '/ad_man'")
     end
 
     def install_migrations
