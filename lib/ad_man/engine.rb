@@ -12,7 +12,7 @@ module AdMan
     end
 
     initializer 'ad_man.assets.precompile' do |app|
-      app.config.assets.precompile += %w(advertisements.js)
+      app.config.assets.precompile += %w(ad_man/advertisements.js)
     end
   end
 end
