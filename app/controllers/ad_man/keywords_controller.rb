@@ -1,4 +1,4 @@
-class AdMan::KeywordsController < ApplicationController
+class AdMan::KeywordsController < AdMan::ApplicationController
   respond_to :html, :json 
 
   def index

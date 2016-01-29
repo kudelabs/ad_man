@@ -1,4 +1,4 @@
-class AdMan::AdvertisementsController < ApplicationController
+class AdMan::AdvertisementsController < AdMan::ApplicationController
   # GET /advertisements
   # GET /advertisements.json  
   include AdMan::ApplicationHelper
