@@ -8,7 +8,7 @@ class AdMan::KeywordsController < AdMan::ApplicationController
   
   def show
     @keyword = AdMan::Keyword.find(params[:id])
-    @advertisements = AdMan::Advertisement.find_all_by_keyword_id(params[:id])
+    @advertisements = AdMan::Advertisement.where(keyword_id: params[:id])
     @keywords = AdMan::Keyword.all
   end
   
