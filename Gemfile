@@ -6,7 +6,7 @@ source "http://rubygems.org"
 gemspec
 
 # Paperclip, for image attachements
-gem 'paperclip'
+gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
 
 # jquery-rails is used by the dummy application
 gem "jquery-rails"
